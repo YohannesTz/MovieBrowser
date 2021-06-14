@@ -1,10 +1,14 @@
 package com.yohannes.dev.app.moviebrowser.viewmodels;
 
+import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.yohannes.dev.app.moviebrowser.R;
 import com.yohannes.dev.app.moviebrowser.data.MainResponse;
 import com.yohannes.dev.app.moviebrowser.data.Movie;
 import com.yohannes.dev.app.moviebrowser.data.NetowrkApi;
@@ -17,11 +21,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DocumentaryViewModel extends ViewModel {
+public class DocumentaryViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<Movie>> movieList;
 
-    public DocumentaryViewModel(){
+    public DocumentaryViewModel(@NonNull Application application){
+        super(application);
         movieList = new MutableLiveData<>();
     }
 
@@ -31,7 +36,7 @@ public class DocumentaryViewModel extends ViewModel {
 
     public void makeApiCall(){
         NetowrkApi netowrkApi = RetroInstance.getRetrofitClient().create(NetowrkApi.class);
-        Call<MainResponse> mainResponseCall = netowrkApi.getResponse(Utils.API_KEY, Utils.LANGUAGE, 99);
+        Call<MainResponse> mainResponseCall = netowrkApi.getResponse(getApplication().getString(R.string.api_key), Utils.LANGUAGE, 99);
 
         mainResponseCall.enqueue(new Callback<MainResponse>() {
             @Override

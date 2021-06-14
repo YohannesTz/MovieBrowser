@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class ComedyFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private TextView noResult;
+    private Button retryButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +42,7 @@ public class ComedyFragment extends Fragment {
         recyclerView = root.findViewById(R.id.comdeyList);
         progressBar = root.findViewById(R.id.progresscircular);
         noResult = root.findViewById(R.id.comedyNoresult);
+        retryButton = root.findViewById(R.id.tryAgainComedy);
 
         movieListAdapter = new MovieListAdapter(this.getContext(), movieList);
         recyclerView.setAdapter(movieListAdapter);
@@ -59,6 +62,8 @@ public class ComedyFragment extends Fragment {
         });
 
         comedyViewModel.makeApiCall();
+
+        retryButton.setOnClickListener(view -> comedyViewModel.makeApiCall());
         return root;
     }
 
@@ -81,11 +86,13 @@ public class ComedyFragment extends Fragment {
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
         noResult.setVisibility(View.VISIBLE);
+        retryButton.setVisibility(View.VISIBLE);
     }
 
     private void showList(){
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
         noResult.setVisibility(View.INVISIBLE);
+        retryButton.setVisibility(View.INVISIBLE);
     }
 }

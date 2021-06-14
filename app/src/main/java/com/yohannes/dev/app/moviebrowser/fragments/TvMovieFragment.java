@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class TvMovieFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private TextView noResult;
+    private Button retryButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +43,7 @@ public class TvMovieFragment extends Fragment {
         recyclerView = root.findViewById(R.id.tvMovieList);
         progressBar = root.findViewById(R.id.progressTvMovie);
         noResult = root.findViewById(R.id.tvMovieNoresult);
+        retryButton = root.findViewById(R.id.tryAgainTvMovie);
 
         movieListAdapter = new MovieListAdapter(this.getContext(), movieList);
         recyclerView.setAdapter(movieListAdapter);
@@ -60,6 +63,8 @@ public class TvMovieFragment extends Fragment {
         });
 
         tvMovieViewModel.makeApiCall();
+
+        retryButton.setOnClickListener(view -> tvMovieViewModel.makeApiCall());
         return root;
     }
 
@@ -82,11 +87,13 @@ public class TvMovieFragment extends Fragment {
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
         noResult.setVisibility(View.VISIBLE);
+        retryButton.setVisibility(View.VISIBLE);
     }
 
     private void showList(){
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
         noResult.setVisibility(View.INVISIBLE);
+        retryButton.setVisibility(View.INVISIBLE);
     }
 }

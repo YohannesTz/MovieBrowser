@@ -21,6 +21,7 @@
             app:tabTextColor="@color/md_white_1000_54"
             app:tabMode="auto"
             app:tabIndicator="@drawable/custom_tab_indicator"
+            app:tabIndicatorColor="@color/white"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorHeight="3dp"
             app:tabTextAppearance="@style/NavigationTabTextAppearance" />

@@ -11,14 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieBrowser">
-        <activity android:name=".DetailActivity"
-            android:theme="@style/Theme.MovieBrowser.NoActionBar"/>
+        <activity
+            android:name=".DetailActivity"
+            android:theme="@style/Theme.MovieBrowser.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_movie_browser"
             android:theme="@style/Theme.MovieBrowser.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

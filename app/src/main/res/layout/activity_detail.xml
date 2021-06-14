@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
-        app:layoutDescription="@xml/activity_detail_xml_detaillayout_scene"
         tools:visibility="visible">
 
         <ImageView
@@ -31,6 +30,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/backdropImage" />
 
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@style/Widget.AppCompat.ActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
         <TextView
             android:id="@+id/titleText"
             android:layout_width="0dp"
@@ -49,9 +59,10 @@
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/posterImage"
             app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
         <LinearLayout
@@ -62,7 +73,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleText">
+            app:layout_constraintTop_toBottomOf="@+id/rating">
 
             <TextView
                 android:id="@+id/detailDescription"
@@ -72,11 +83,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleText"
-                tools:text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non facere laborum reiciendis voluptatem similique nam unde mollitia sequi est animi, accusamus, asperiores cupiditate debitis quod ratione molestias libero sint ex?Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, hic nihil fugiat fuga cum est doloribus veritatis recusandae, magni consequuntur perferendis." />
-
+                tools:text="@string/loremIpsum" />
 
         </LinearLayout>
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -91,10 +102,10 @@
 
             <ProgressBar
                 android:id="@+id/progressDetail"
-                tools:visibility="visible"
-                android:visibility="invisible"
                 android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp"
+                android:visibility="invisible"
+                tools:visibility="invisible" />
 
             <TextView
                 android:id="@+id/detailNoresult"

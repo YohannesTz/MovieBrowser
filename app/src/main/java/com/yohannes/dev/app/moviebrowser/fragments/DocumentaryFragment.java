@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class DocumentaryFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private TextView noResult;
+    private Button retryButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +42,7 @@ public class DocumentaryFragment extends Fragment {
         recyclerView = root.findViewById(R.id.documentaryList);
         progressBar = root.findViewById(R.id.progressDoc);
         noResult = root.findViewById(R.id.docNoresult);
+        retryButton = root.findViewById(R.id.tryAgainDocumentary);
 
         movieListAdapter = new MovieListAdapter(this.getContext(), movieList);
         recyclerView.setAdapter(movieListAdapter);
@@ -59,6 +62,8 @@ public class DocumentaryFragment extends Fragment {
         });
 
         documentaryViewModel.makeApiCall();
+
+        retryButton.setOnClickListener(view -> documentaryViewModel.makeApiCall());
         return root;
     }
 
@@ -81,11 +86,13 @@ public class DocumentaryFragment extends Fragment {
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
         noResult.setVisibility(View.VISIBLE);
+        retryButton.setVisibility(View.VISIBLE);
     }
 
     private void showList(){
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
         noResult.setVisibility(View.INVISIBLE);
+        retryButton.setVisibility(View.INVISIBLE);
     }
 }

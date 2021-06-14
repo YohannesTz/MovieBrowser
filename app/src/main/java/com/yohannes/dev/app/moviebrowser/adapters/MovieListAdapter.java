@@ -2,7 +2,6 @@ package com.yohannes.dev.app.moviebrowser.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,17 +45,14 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
         holder.title.setText(movieList.get(position).getTitle());
-        //holder.description.setText(movieList.get(position).getDescription());
-        //holder.date.setText(movieList.get(position).getDate());
-        //holder.rating.setText(String.valueOf(movieList.get(position).getRating()));
         holder.singleMovie = movieList.get(position);
 
         Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w500" + this.movieList.get(position).getBackgroundPath())
+                .load("https://image.tmdb.org/t/p/w500" + this.movieList.get(position).getPosterPath())
                 .timeout(60000)
                 .apply(RequestOptions.centerCropTransform())
-                .placeholder(R.drawable.ic_image_placeholder)
-                .error(R.drawable.ic_image_placeholder)
+                .placeholder(R.drawable.ic_image_mountain)
+                .error(R.drawable.ic_image_mountain)
                 .into(holder.movieImage);
         
         Log.e("URL", "https://image.tmdb.org/t/p/w500" + this.movieList.get(position).getBackgroundPath());

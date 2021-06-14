@@ -1,8 +1,8 @@
-#Movie Browser
+# Movie Browser
 A simple movie browser app that is made using the Architecture components to browse movies. 
-this app uses the [movie database api] (https://www.themoviedb.org)
+this app uses the [movie database api](https://www.themoviedb.org)
 
-#dependencies
+# dependencies
 - constraint layout
 - glide 
 - retrofit 
@@ -16,8 +16,7 @@ this app uses the [movie database api] (https://www.themoviedb.org)
     <img src="/images/image_5.png" width="350" title="Screenshot 5" alt="screenshot">
 </p>
 
-#License
-The MIT License (MIT)
+# License The MIT License (MIT)
 
 Copyright (c) Yohannes Tezera
 

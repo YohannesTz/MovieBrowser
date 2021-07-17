@@ -44,7 +44,7 @@ public class DocumentaryFragment extends Fragment {
         noResult = root.findViewById(R.id.docNoresult);
         retryButton = root.findViewById(R.id.tryAgainDocumentary);
 
-        movieListAdapter = new MovieListAdapter(this.getContext(), movieList);
+        movieListAdapter = new MovieListAdapter(this.getContext(), movieList, recyclerView);
         recyclerView.setAdapter(movieListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

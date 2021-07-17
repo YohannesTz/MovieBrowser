@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -62,7 +63,7 @@ public class DetailActivity extends AppCompatActivity {
         rating = findViewById(R.id.rating);
 
         multiTransformation = new MultiTransformation<>(new RoundedCornersTransformation(16, 0, RoundedCornersTransformation.CornerType.ALL));
-
+        detailDescription.setMovementMethod(new ScrollingMovementMethod());
         showLoading();
 
         setupMovie(movieDetail);

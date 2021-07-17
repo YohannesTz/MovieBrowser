@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.yohannes.dev.app.moviebrowser.R;
 import com.yohannes.dev.app.moviebrowser.adapters.MovieListAdapter;
+import com.yohannes.dev.app.moviebrowser.adapters.OnLoadMoreListener;
 import com.yohannes.dev.app.moviebrowser.data.Movie;
 import com.yohannes.dev.app.moviebrowser.viewmodels.ComedyViewModel;
 
@@ -44,9 +45,17 @@ public class ComedyFragment extends Fragment {
         noResult = root.findViewById(R.id.comedyNoresult);
         retryButton = root.findViewById(R.id.tryAgainComedy);
 
-        movieListAdapter = new MovieListAdapter(this.getContext(), movieList);
+        recyclerView.setHasFixedSize(true);
+        movieListAdapter = new MovieListAdapter(this.getContext(), movieList, recyclerView);
         recyclerView.setAdapter(movieListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        movieListAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+                comedyViewModel.makeApiCall();
+            }
+        });
 
         showLoading();
 

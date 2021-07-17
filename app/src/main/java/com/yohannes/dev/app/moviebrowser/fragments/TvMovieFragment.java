@@ -45,7 +45,7 @@ public class TvMovieFragment extends Fragment {
         noResult = root.findViewById(R.id.tvMovieNoresult);
         retryButton = root.findViewById(R.id.tryAgainTvMovie);
 
-        movieListAdapter = new MovieListAdapter(this.getContext(), movieList);
+        movieListAdapter = new MovieListAdapter(this.getContext(), movieList, recyclerView);
         recyclerView.setAdapter(movieListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 

@@ -2,6 +2,8 @@
 A simple movie browser app that is made using the Architecture components to browse movies. 
 this app uses the [movie database api](https://www.themoviedb.org)
 
+icons from [Icons8](https://icons8.com/)
+
 # dependencies
 - constraint layout
 - glide 

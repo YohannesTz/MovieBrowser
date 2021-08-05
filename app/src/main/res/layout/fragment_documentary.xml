@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.DocumentaryFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -33,15 +34,14 @@
                 android:visibility="invisible"
                 tools:visibility="visible" />
 
-            <TextView
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/docNoresult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="@string/errorText"
-                android:textSize="20sp"
                 android:visibility="invisible"
-                tools:visibility="visible" />
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                app:lottie_rawRes="@raw/no_internet_connection"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
 
             <Button
                 android:id="@+id/tryAgainDocumentary"

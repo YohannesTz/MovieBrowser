@@ -1,9 +1,5 @@
 package com.yohannes.dev.app.moviebrowser;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -14,16 +10,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.request.RequestOptions;
-import com.hannesdorfmann.swipeback.Position;
-import com.hannesdorfmann.swipeback.SwipeBack;
-import com.hannesdorfmann.swipeback.transformer.SlideSwipeBackTransformer;
 import com.yohannes.dev.app.moviebrowser.data.Movie;
 import com.yohannes.dev.app.moviebrowser.viewmodels.DetailViewModel;
 
-import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class DetailActivity extends AppCompatActivity {
@@ -34,7 +31,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private ConstraintLayout detailLayout;
     private ProgressBar progressBar;
-    private TextView noResult;
+    private LottieAnimationView noResult;
     private ImageView backdropImage;
     private ImageView posterImage;
     private TextView titleText;

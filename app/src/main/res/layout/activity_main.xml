@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:menu="@menu/appbarmenu"
+        app:title="@string/appBarTitle"
+        android:theme="?attr/actionBarTheme" />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
@@ -16,12 +26,12 @@
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabBackground="@color/purple_700"
-            app:tabSelectedTextColor="@color/md_white_1000"
-            app:tabTextColor="@color/md_white_1000_54"
+            app:tabBackground="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/md_black_1000_87"
+            app:tabTextColor="@color/md_black_1000_38"
             app:tabMode="auto"
             app:tabIndicator="@drawable/custom_tab_indicator"
-            app:tabIndicatorColor="@color/white"
+            app:tabIndicatorColor="@color/colorAccent"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorHeight="3dp"
             app:tabTextAppearance="@style/NavigationTabTextAppearance" />

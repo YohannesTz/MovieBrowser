@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.yohannes.dev.app.moviebrowser.R;
 import com.yohannes.dev.app.moviebrowser.adapters.MovieListAdapter;
 import com.yohannes.dev.app.moviebrowser.data.Movie;
@@ -29,7 +30,7 @@ public class DramaFragment extends Fragment {
     private MovieListAdapter movieListAdapter;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
-    private TextView noResult;
+    private LottieAnimationView noResult;
     private Button retryButton;
 
     @Override

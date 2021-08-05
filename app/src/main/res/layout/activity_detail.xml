@@ -21,6 +21,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:background="@drawable/top_rect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/posterImage"
             android:layout_width="100dp"
@@ -37,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            app:tint="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_arrow_back" />
@@ -80,6 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:scrollbars="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleText"
@@ -107,14 +117,23 @@
                 android:visibility="invisible"
                 tools:visibility="invisible" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/detailNoresult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 tools:visibility="visible"
                 android:visibility="invisible"
-                android:text="Oops! Something went wrong..." />
+                android:text="Oops! Something went wrong..." />-->
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/detailNoresult"
+                android:visibility="invisible"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                app:lottie_rawRes="@raw/no_internet_connection"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
 
         </LinearLayout>
 
